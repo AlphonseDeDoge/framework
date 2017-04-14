@@ -1,12 +1,16 @@
 <?php
 
-	require '/mvc/model/model.php'
-
+	require 'mvc/model/model.php';
 	try {
 		$bdd = getBdd();
-		require '/www/accueil.php';
+
+		//if(isset($_SESSION[]))
+		if($wrong_password==1)
+			require 'mvc/view/viewAccueilWrongPwd.php';
+		else
+			require 'mvc/view/viewAccueil.php';
+
 	} catch (Exception $e) {
 
 	}
-
 ?>

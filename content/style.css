@@ -8,7 +8,7 @@ html
 {
 	display: inline-block;
 	position:relative;
-	margin-left:80%;
+	margin-left:75%;
 }
 
 .labelInscription
@@ -23,4 +23,9 @@ html
 	height: 33px;
 	width: 20%;
 	font-size: 150%;
+}
+
+.wrongpwd
+{
+	color : red;
 }
