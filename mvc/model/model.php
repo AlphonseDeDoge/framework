@@ -2,10 +2,10 @@
 
 	function getBdd()
 	{
-		define('HOST','127.0.1.1');
-		define('DBName','nl773507');
-		define('USER','nl773507');
-		define('PASS','nl773507');
+		define('HOST','localhost');
+		define('DBName','web');
+		define('USER','root');
+		define('PASS','root');
 
 		try
 		{
@@ -40,13 +40,15 @@
 				$hashPasswd = md5($passwd);
 				if($hashPasswd == $donnees['password'])
 				{
-
 					session_start();
 
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
 					header('Location: index.php');
 					exit();
-
+				}
+				else {
+					header('Location: accueil.php');
+					exit();
 				}
 			}
 		}

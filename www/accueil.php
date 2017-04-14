@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Titre de la page</title>
+	<title>Accueil</title>
 	<link rel="stylesheet" href="../content/style.css">
 </head>
 
@@ -18,6 +18,6 @@
 		<a href="inscription.php">New?</a>
 	</div>
 	<hr />
-	<h1>Bienvenue!</h1>
+	<h1>Bienvenue !</h1>
 </body>
 </html>
