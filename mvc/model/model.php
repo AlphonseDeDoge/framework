@@ -45,7 +45,7 @@
 
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
 					$_SESSION['username']=$donnees['username'];
-					header('Location: index.php');
+					header('Location: ../../index.php');
 					exit();
 
 				}
