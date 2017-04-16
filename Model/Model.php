@@ -2,7 +2,8 @@
 
 	function getBdd()
 	{
-
+		require_once(root.'/Assets/conf.php');
+		
 		try
 		{
 			$bdd = new PDO('mysql:host='.HOST.';dbname='.DBName, USER, PASS);

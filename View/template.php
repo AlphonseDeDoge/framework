@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="Contenu/style.css" />
-        <title><?php $titre ?></title>
+        <title><?php echo $titre ?></title>
     </head>
     <body>
         <div id="global">
@@ -14,7 +14,7 @@
 
 
             <div id="contenu">
-                <?php $contenu ?>
+                <?php echo $contenu ?>
             </div> <!-- #contenu -->
 
 
