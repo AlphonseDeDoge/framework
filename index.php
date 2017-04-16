@@ -4,10 +4,24 @@ require_once(root.'/Controller/Controller.php');
 
 try {
   if (isset($_GET['action'])) {
-      pagePrincipale();
+        try
+        {
+            if($_GET['action']=='principale')
+            {
+                pagePrincipale();
+            }
+            else
+            {
+                erreur("Please don't touch the url");
+            }
+        }
+        catch (Exception $e)
+        {
+          erreur($e->getMessage());
+        }
   }
   else {
-    accueil();  // action par défaut
+      accueil();  // action par défaut
   }
 }
 catch (Exception $e) {

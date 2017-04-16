@@ -9,4 +9,13 @@ function accueil() {
   getView('Accueil');
 }
 
+function pagePrincipale() {
+  getView('Principale');
+}
+
+function erreur($msgErreur)
+{
+    getViewErreur('Erreur',$msgErreur);
+}
+
 ?>
