@@ -2,10 +2,6 @@
 
 	function getBdd()
 	{
-		define('HOST','localhost');
-		define('DBName','projet');
-		define('USER','root');
-		define('PASS','root');
 
 		try
 		{
@@ -42,10 +38,10 @@
 				{
 
 					session_start();
-
+					$_SESSION['connecte']='true';
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
 					$_SESSION['username']=$donnees['username'];
-					header('Location: ../../index.php');
+					header('Location: index.php');
 					exit();
 
 				}
