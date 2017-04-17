@@ -5,23 +5,30 @@
     $bdd = getBdd();
     if(isset($_POST['user'])) //on a deja visité la page
     {
-        //On remplit la bdd
-        $hashedpwd = md5($_POST['password']);
-        $username = $_POST['user'];
-        $name = $_POST['name'];
-        $fname = $_POST['fname'];
-        $email = $_POST['email'];
-        $bdd -> exec('INSERT INTO account(username,password,accountLevel) VALUES(\''.$username.'\',\''.$hashedpwd.'\',1)');
+		try{
+	        //On remplit la bdd
+	        $hashedpwd = md5($_POST['password']);
+	        $username = $_POST['user'];
+	        $name = $_POST['name'];
+	        $fname = $_POST['fname'];
+	        $email = $_POST['email'];
+	        $bdd -> exec('INSERT INTO account(username,password,accountLevel) VALUES(\''.$username.'\',\''.$hashedpwd.'\',1)');
 
-        //Récupération de l'id pour faire match l'id de l'account et l'id de l'user
+	        //Récupération de l'id pour faire match l'id de l'account et l'id de l'user
 
-        $tmp = $bdd -> query('SELECT id FROM account ORDER BY id DESC limit 1');
-        $id = $tmp -> fetch();
+	        $tmp = $bdd -> query('SELECT id FROM account ORDER BY id DESC limit 1');
+	        $id = $tmp -> fetch();
 
-        $bdd -> exec('INSERT INTO user VALUES(\''.$id['id'].'\',\''.$name.'\',\''.$fname.'\',\''.$email.'\')');
-        session_start();
-        header('Location: accueil.php');
-        exit();
+	        $bdd -> exec('INSERT INTO user VALUES(\''.$id['id'].'\',\''.$name.'\',\''.$fname.'\',\''.$email.'\')');
+	        session_start();
+			$_SESSION['accountLevel']='1';
+			$_SESSION['name']=$username;
+			setcookie('username', $username, time() + 365*24*3600, null, null, false, true);
+	        header('Location: ../index.php');
+	        exit();
+		}catch(Exception $e){
+			header('Location: inscription.php');
+		}
     }
 
 

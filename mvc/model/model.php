@@ -43,15 +43,16 @@
 					session_start();
 
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
-					$_SESSION['username']=$donnees['username'];
+					$_SESSION['name']=$donnees['username'];
 					header('Location: ../index.php');
 					exit();
 				}
 				else {
-					$wrong_password = 1;
-					header('Location: ../index.php');
-					exit();
+					throw new Exception('Wrong password');
 				}
+			}
+			else {
+				throw new Exception('Wrong login');
 			}
 		}
 	}

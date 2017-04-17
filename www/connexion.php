@@ -7,7 +7,7 @@
 	}
 	catch(Exception $e)
 	{
-		echo '<html><body>Erreur ! ' . $e->getMessage() . '</body></html>';
+		header('Location: ../index.php');
 	}
 
 

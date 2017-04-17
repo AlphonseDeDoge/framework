@@ -11,7 +11,7 @@
 		<form action="www/connexion.php" method="post">
 			<div>
 				Username:<input type="text" id="username" name="username"><br />
-				Password:<input type="password" id="password" name="password"><?= $w_pwd ?><br />
+				Password:<input type="password" id="password" name="password"><br />
 				<input id="boutonConnect" type="submit" value="Connect">
 			</div>
 		</form>
