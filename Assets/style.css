@@ -4,6 +4,12 @@ html
 	color:white;
 }
 
+#clicAccueil
+{
+	width:20%;
+	display: inline;
+}
+
 .connexion
 {
 	display: inline-block;
@@ -11,7 +17,7 @@ html
 	margin-left:80%;
 }
 
-.labelInscription
+label
 {
 	display: block;
 	width: 20%;

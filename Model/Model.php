@@ -2,11 +2,8 @@
 
 	function getBdd()
 	{
-		define('HOST','127.0.1.1');
-		define('DBName','nl773507');
-		define('USER','nl773507');
-		define('PASS','nl773507');
-
+		require_once(root.'/Assets/conf.php');
+		
 		try
 		{
 			$bdd = new PDO('mysql:host='.HOST.';dbname='.DBName, USER, PASS);
@@ -42,8 +39,9 @@
 				{
 
 					session_start();
-
+					$_SESSION['connecte']='true';
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
+					$_SESSION['username']=$donnees['username'];
 					header('Location: index.php');
 					exit();
 
