@@ -13,6 +13,14 @@ function pagePrincipale() {
   getView('Principale');
 }
 
+function compte() {
+  getView('Compte');
+}
+
+function inscription() {
+  getView('Inscription');
+}
+
 function erreur($msgErreur)
 {
     getViewErreur('Erreur',$msgErreur);
