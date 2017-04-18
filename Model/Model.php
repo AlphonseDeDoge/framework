@@ -77,14 +77,4 @@
 			}
 
 	}
-
-	function insertBdd($into,$param,$bdd)
-	{
-
-	}
-
-	function Signout()
-	{
-
-	}
 ?>

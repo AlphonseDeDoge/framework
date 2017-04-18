@@ -5,7 +5,7 @@
 ?>
     <div class="connexion">
 <?php
-    if(isset($_SESSION) && isset($_SESSION['connection']) && $_SESSION['connection']==false):
+    if($_SESSION['connection']==false):
 ?>
 
     <form action="index.php?action=signin" method="post">
