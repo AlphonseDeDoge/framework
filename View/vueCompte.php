@@ -22,7 +22,12 @@
 
 	<h3>Delete account</h3>
 	<form action="" method="post">
-	    <input type="submit" value="Delete account"" />
+	    <input type="submit" value="Delete account" />
+	</form>
+
+    <h3>Sign out</h3>
+	<form action="" method="post">
+	    <input type="submit" value="Delete account" />
 	</form>
 
 </div>

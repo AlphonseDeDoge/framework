@@ -1,6 +1,6 @@
 <?php
     define('HOST','localhost');
-    define('DBName','web');
+    define('DBName','projet');
     define('USER','root');
     define('PASS','root');
 ?>

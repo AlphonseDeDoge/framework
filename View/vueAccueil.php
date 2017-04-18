@@ -4,14 +4,35 @@
     ob_start();
 ?>
     <div class="connexion">
-        <form action="connexion.php" method="post">
-            <div>
-                <label>Username:</label><input type="text" id="username" name="username" placeholder="username">
-                <label>Password:</label><input type="password" id="password" name="password" placeholder="password">
-                <label><input id="boutonConnect" type="submit" value="Connect"></label>
-            </div>
-        </form>
-        <a href="inscription.php">New?</a>
+<?php
+    if(isset($_SESSION) && $_SESSION['connection'] == false):
+?>
+
+    <form action="index.php?action=signin" method="post">
+        <div>
+            <label>Username:</label><input type="text" id="username" name="username" placeholder="username">
+            <label>Password:</label><input type="password" id="password" name="password" placeholder="password">
+            <label><input id="boutonConnect" type="submit" value="Connect"></label>
+        </div>
+    </form>
+
+    <a href="index.php?action=inscription">New?</a>
+
+<?php
+
+    else:
+
+?>
+
+    <form action="index.php?action=compte" method="post">
+        <input type="submit" value="Compte" class="gestionCompte" />	<!-- Value : nom de l'utilisateur -->
+    </form>
+    <a href="index.php?action=signout">Sign Out</a>
+
+<?php endif; ?>
+
+
+
     </div>
     <hr />
     <h1>Bienvenue!</h1>

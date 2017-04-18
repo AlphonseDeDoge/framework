@@ -6,19 +6,23 @@ require_once(root.'/View/View.php');
 
 // renvoie sur la page d'accueil
 function accueil() {
-  getView('Accueil');
+    getView('Accueil');
 }
 
 function pagePrincipale() {
-  getView('Principale');
+    getView('Principale');
 }
 
 function compte() {
-  getView('Compte');
+    getView('Compte');
 }
 
 function inscription() {
-  getView('Inscription');
+    getView('Inscription');
+}
+
+function register(){
+    require('ControllerRegister.php');
 }
 
 function erreur($msgErreur)

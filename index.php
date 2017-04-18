@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('root',$_SERVER['DOCUMENT_ROOT']);
 require_once(root.'/Controller/Controller.php');
 
@@ -17,6 +18,17 @@ try {
 			else if($_GET['action']=='inscription')
 			{
                 inscription();
+            }
+            else if ($_GET['action']=='register') {
+                register();
+            }
+            else if ($_GET['action']=='signout') {
+                $_SESSION['connection']=false;
+                session_destroy();
+                accueil();
+            }
+            else if ($_GET['action']=='signin') {
+                pagePrincipale();
             }
             else
             {
