@@ -35,7 +35,7 @@
 			if($donnees['username']==$username)
 			{
 				$hashPasswd = password_hash($passwd);
-				if($hashPasswd ==  password_verify($donnees['password'],))
+				if($hashPasswd == password_verify($donnees['password'],$hashPasswd))
 				{
 
 					$_SESSION['connection']='true';
@@ -56,7 +56,7 @@
 		        //On remplit la bdd
 				$_SESSION['connection']=true;
 		        $_SESSION['accountLevel']='1';
-				$_SESSION['hashedpwd']=md5($_POST['password']);
+				$_SESSION['hashedpwd']=password_hash($_POST['password']);
 				$_SESSION['username']=$_POST['user'];
 				$_SESSION['name']=$_POST['name'];
 				$_SESSION['fname']=$_POST['fname'];
