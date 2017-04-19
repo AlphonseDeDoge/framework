@@ -34,17 +34,18 @@
 		{
 			if($donnees['username']==$username)
 			{
-				$hashPasswd = password_hash($passwd);
-				if($hashPasswd == password_verify($donnees['password'],$hashPasswd))
+				$hashPasswd = password_hash($passwd,PASSWORD_DEFAULT);
+				if(password_verify($passwd,$donnees['password']))
 				{
-
 					$_SESSION['connection']='true';
 					$_SESSION['accountLevel']=$donnees['accountLevel'];
 					$_SESSION['username']=$donnees['username'];
-
+					$_SESSION['id']=$donnees['id'];
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 
 	function registerAccount()
@@ -56,7 +57,7 @@
 		        //On remplit la bdd
 				$_SESSION['connection']=true;
 		        $_SESSION['accountLevel']='1';
-				$_SESSION['hashedpwd']=password_hash($_POST['password']);
+				$_SESSION['hashedpwd']=password_hash($_POST['password'],PASSWORD_DEFAULT);
 				$_SESSION['username']=$_POST['user'];
 				$_SESSION['name']=$_POST['name'];
 				$_SESSION['fname']=$_POST['fname'];
@@ -76,5 +77,34 @@
 				echo($e->getMessage());
 			}
 
+	}
+
+	function deleteAccount($id)
+	{
+		$bdd = getBdd();
+		$bdd -> exec('DELETE FROM account where id=\''.$id.'\'');
+		$_SESSION['connection']=false;
+		session_destroy();
+		header('Location: index.php');
+	}
+
+	function changePassword($id)
+	{
+		$bdd=getBdd();
+		$account = $bdd->query('select * from account');
+		while($donnees = $account -> fetch())
+		{
+			if($donnees['username']==$_SESSION['username'])
+			{
+				if(password_verify($_SESSION['prev_passwordTemp'],$donnees['password']))
+				{
+					$pwdhash = password_hash($_SESSION['new_passwordTemp'],PASSWORD_DEFAULT);
+					$req = $bdd -> prepare('UPDATE account SET password= ? WHERE id= ?');
+					$req -> execute(array($pwdhash,$id));
+					$req -> closeCursor();
+					header('Location: index.php?action=compte');
+				}
+			}
+		}
 	}
 ?>

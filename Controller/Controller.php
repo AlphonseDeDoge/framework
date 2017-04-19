@@ -25,6 +25,19 @@ function register(){
     require('ControllerRegister.php');
 }
 
+function signin(){
+    if(authentifyAccount($_SESSION['usernameTemp'],$_SESSION['passwordTemp']))
+        pagePrincipale();
+}
+
+function deleteAcc(){
+    deleteAccount($_SESSION['id']);
+}
+
+function changePwd(){
+    changePassword($_SESSION['id']);
+}
+
 function erreur($msgErreur)
 {
     getViewErreur('Erreur',$msgErreur);

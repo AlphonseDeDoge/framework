@@ -53,3 +53,13 @@ label
 	margin-bottom: 30%;
 	margin-left: 20%
 }
+
+a
+{
+	color:steelblue;
+}
+
+a:visited
+{
+	color:teal;
+}

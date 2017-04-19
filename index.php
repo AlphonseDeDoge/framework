@@ -28,7 +28,13 @@ try {
                 accueil();
             }
             else if ($_GET['action']=='signin') {
-                pagePrincipale();
+                signin();
+            }
+            else if ($_GET['action']=='deleteAccount') {
+                deleteAcc();
+            }
+            else if ($_GET['action']=='changePwd') {
+                changePwd();
             }
             else
             {

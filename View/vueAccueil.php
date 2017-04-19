@@ -2,13 +2,20 @@
     $titre = "Accueil";
 
     ob_start();
+    if(isset($_POST['username']) && isset($_POST['password']))
+    {
+        $_SESSION['passwordTemp']=$_POST['password'];
+        $_SESSION['usernameTemp']=$_POST['username'];
+        header('Location: index.php?action=signin');
+
+    }
 ?>
     <div class="connexion">
 <?php
     if($_SESSION['connection']==false):
 ?>
 
-    <form action="index.php?action=signin" method="post">
+    <form action="index.php" method="post">
         <div>
             <label>Username:</label><input type="text" id="username" name="username" placeholder="username">
             <label>Password:</label><input type="password" id="password" name="password" placeholder="password">
