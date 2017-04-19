@@ -1,5 +1,6 @@
 <?php
     $titre = "Compte";
+    $error=$msgError;
 
     ob_start();
     if(isset($_POST['prev_password']) && isset($_POST['new_password']))
@@ -9,9 +10,6 @@
         header('Location: index.php?action=changePwd');
     }
 ?>
-<form action="index.php?action=compte" method="post">
-    <input type="submit" value="Compte" class="gestionCompte" />	<!-- Value : nom de l'utilisateur -->
-</form>
 <br />
 <hr />
 
@@ -21,7 +19,7 @@
 	<h3>Change password</h3>
 
 	<form action="index.php?action=compte" method="post">
-		<label>Current password:</label><input type="password" class="inputCompte" name="prev_password">
+		<label>Current password:</label><input type="password" class="inputCompte" name="prev_password"><?php echo $error; ?>
 		<label>New password:</label><input type="password" class="inputCompte" name="new_password"><br /><br />
 		<button type="submit">Submit</button><br />
 	</form>

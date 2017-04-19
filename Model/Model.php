@@ -103,8 +103,10 @@
 					$req -> execute(array($pwdhash,$id));
 					$req -> closeCursor();
 					header('Location: index.php?action=compte');
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 ?>

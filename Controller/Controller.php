@@ -5,16 +5,16 @@ require_once(root.'/View/View.php');
 
 
 // renvoie sur la page d'accueil
-function accueil() {
-    getView('Accueil');
+function accueil($msgError) {
+    getViewErreur('Accueil',$msgError);
 }
 
 function pagePrincipale() {
     getView('Principale');
 }
 
-function compte() {
-    getView('Compte');
+function compte($msgError) {
+    getViewErreur('Compte',$msgError);
 }
 
 function inscription() {
@@ -28,6 +28,11 @@ function register(){
 function signin(){
     if(authentifyAccount($_SESSION['usernameTemp'],$_SESSION['passwordTemp']))
         pagePrincipale();
+
+    else {
+        $msgError="Wrong password";
+        accueil($msgError);
+    }
 }
 
 function deleteAcc(){
@@ -35,7 +40,11 @@ function deleteAcc(){
 }
 
 function changePwd(){
-    changePassword($_SESSION['id']);
+    if(!changePassword($_SESSION['id']))
+    {
+        compte('Wrong password');
+    }
+    else compte("");
 }
 
 function erreur($msgErreur)

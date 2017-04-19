@@ -13,7 +13,7 @@ try {
             }
 			else if($_GET['action']=='compte')
 			{
-                compte();
+                compte("");
             }
 			else if($_GET['action']=='inscription')
 			{
@@ -25,7 +25,7 @@ try {
             else if ($_GET['action']=='signout') {
                 $_SESSION['connection']=false;
                 session_destroy();
-                accueil();
+                accueil("");
             }
             else if ($_GET['action']=='signin') {
                 signin();
@@ -47,7 +47,9 @@ try {
         }
   	}
   	else {
-      	accueil();  // action par défaut
+        if(!$_SESSION['connection'])
+      	    accueil("");
+        else pagePrincipale();
   	}
 }
 catch (Exception $e) {

@@ -1,5 +1,6 @@
 <?php
     $titre = "Accueil";
+    $error=$msgError;
 
     ob_start();
     if(isset($_POST['username']) && isset($_POST['password']))
@@ -7,7 +8,6 @@
         $_SESSION['passwordTemp']=$_POST['password'];
         $_SESSION['usernameTemp']=$_POST['username'];
         header('Location: index.php?action=signin');
-
     }
 ?>
     <div class="connexion">
@@ -19,6 +19,7 @@
         <div>
             <label>Username:</label><input type="text" id="username" name="username" placeholder="username">
             <label>Password:</label><input type="password" id="password" name="password" placeholder="password">
+            <?php echo $error; ?>
             <label><input id="boutonConnect" type="submit" value="Connect"></label>
         </div>
     </form>
