@@ -47,7 +47,7 @@ try {
         }
   	}
   	else {
-        if(!$_SESSION['connection'])
+        if(!isset($_SESSION['connection']) || !$_SESSION['connection'])
       	    accueil("");
         else pagePrincipale();
   	}

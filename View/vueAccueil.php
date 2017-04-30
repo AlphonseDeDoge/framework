@@ -12,7 +12,7 @@
 ?>
     <div class="connexion">
 <?php
-    if($_SESSION['connection']==false):
+    if(!isset($_SESSION['connection']) || !$_SESSION['connection']):
 ?>
 
     <form action="index.php" method="post">
