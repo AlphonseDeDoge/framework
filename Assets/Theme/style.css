@@ -21,7 +21,7 @@ html
 label
 {
 	display: block;
-	width: 20%;
+	width: 50%;
 	font-size: 110%;
 }
 
@@ -37,7 +37,7 @@ label
 .inputCompte
 {
 	height: 33px;
-	width: 20%;
+	width: 40%;
 	font-size: 150%;
 }
 
@@ -53,6 +53,16 @@ label
 	margin-top: 30%;
 	margin-bottom: 30%;
 	margin-left: 40%
+}
+
+.table
+{
+  	width: 100%;
+}
+
+td
+{
+  	vertical-align: top;
 }
 
 a

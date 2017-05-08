@@ -51,6 +51,18 @@ function carte(){
     getView('Carte');
 }
 
+function userPwd()
+{
+    changeUserPassword($_POST['userusername'],$_POST['userpwd']);
+    compte("");
+}
+
+function delUserAcc()
+{
+    deleteUserAccount($_POST['deleteuser']);
+    compte("");
+}
+
 function erreur($msgErreur)
 {
     getViewErreur('Erreur',$msgErreur);

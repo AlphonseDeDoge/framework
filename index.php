@@ -39,6 +39,12 @@ try {
             else if ($_GET['action']=='carte') {
                 carte();
             }
+            else if ($_GET['action']=='userpwd') {
+                userPwd();
+            }
+            else if ($_GET['action']=='delUser') {
+                delUserAcc();
+            }
             else
             {
                 erreur("Please don't touch the url");

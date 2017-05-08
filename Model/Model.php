@@ -115,4 +115,31 @@
 		}
 		return false;
 	}
+
+	function changeUserPassword($username,$password)
+	{
+		$bdd=getBdd();
+		$account = $bdd->query('select * from account');
+		while($donnees = $account -> fetch())
+		if($donnees['username']==$username)
+		{
+			$pwdhash = password_hash($password,PASSWORD_DEFAULT);
+			$req = $bdd -> prepare('UPDATE account SET password= ? WHERE username= ?');
+			$req -> execute(array($pwdhash,$username));
+			$req -> closeCursor();
+		}
+	}
+
+	function deleteUserAccount($username)
+	{
+		$bdd=getBdd();
+		$account = $bdd->query('select * from account');
+		while($donnees = $account -> fetch())
+		if($donnees['username']==$username)
+		{
+			$req = $bdd -> prepare('DELETE FROM account where username= ?');
+			$req -> execute(array($username));
+			$req -> closeCursor();
+		}
+  	}
 ?>
