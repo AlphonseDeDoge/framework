@@ -57,7 +57,7 @@ function augmente_taille() {
         break;
 	}
 }
-	
+
 function diminue_taille(){
 	switch(document.getElementById(selection).style.fontSize) {
     case "xx-small":
@@ -180,7 +180,7 @@ function couleur(nom){
     case "lavande":
         return "rgb(200,191,231)";
         break;
-    
+
     default:
         break;
 	}
@@ -216,11 +216,11 @@ function sauvegarderTexte(){
         textDecoration = liste[i].style.textDecoration;
         styleColor = liste[i].style.color;
         monObjet = {
-            "id":id, 
-            "fontSize":fontSize, 
-            "fontWeight":fontWeight, 
-            "fontStyle":fontStyle, 
-            "textDecoration":textDecoration, 
+            "id":id,
+            "fontSize":fontSize,
+            "fontWeight":fontWeight,
+            "fontStyle":fontStyle,
+            "textDecoration":textDecoration,
             "styleColor":styleColor
         }
         monJSON = JSON.stringify(monObjet);
@@ -233,14 +233,14 @@ function sauvegarderTexte(){
             }
     monJSON = JSON.stringify(monObjet);
     localStorage.setItem("background", monJSON);
-   
+
 
 }
 
 function charger(){
     var liste = document.getElementsByClassName('texte');
     var i;
-    var charge; 
+    var charge;
     var obj;
 
     charge = localStorage.getItem("background");
@@ -287,7 +287,7 @@ function themePro(){
         break;
     }
     themeActuel="pro";
-}   
+}
 
     function themeBusinessI(){
         switch(themeActuel) {
@@ -340,7 +340,7 @@ function themeBusinessII(){
     }
     themeActuel="businessII";
 }
-    
+
 
 function chargeTheme(){
     switch(themeActuel) {

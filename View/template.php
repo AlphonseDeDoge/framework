@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/Assets/theme/<?php echo $style ?>" />
+        <link rel="stylesheet" href="Assets/theme/<?php echo $style ?>" />
         <title><?php echo $titre ?></title>
     </head>
     <body>
@@ -65,8 +65,8 @@
 
                 })
             });
-
         </script>
+        <script>themePro();</script>
 
     </body>
 </html>

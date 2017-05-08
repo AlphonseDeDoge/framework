@@ -49,9 +49,11 @@ Carte.prototype.CreatLiaison=function(/*truc*/){}
 
 
 Carte.prototype.Suppr=function(selection){
-	var elem = document.getElementById(selection);
-	elem.parentNode.removeChild(elem);
-	this.DelElem(selection);
+    if (selection != 'Carte' && selection !='sujet0') {
+    	var elem = document.getElementById(selection);
+    	elem.parentNode.removeChild(elem);
+    	this.DelElem(selection);
+    }
 }
 
 /*                  ici                  */
