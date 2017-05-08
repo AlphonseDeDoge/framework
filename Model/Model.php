@@ -54,7 +54,7 @@
 
 			try
 			{
-				if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['fname']) && isset($_POST['email']))
+				if($_POST['user']!="" && $_POST['password']!="" && $_POST['name']!="" && $_POST['fname']!="" && $_POST['email']!="")
 				{
 			        //On remplit la bdd
 					$_SESSION['connection']=true;
@@ -64,7 +64,7 @@
 					$_SESSION['name']=$_POST['name'];
 					$_SESSION['fname']=$_POST['fname'];
 					$_SESSION['email']=$_POST['email'];
-					//insertBdd('account(username,password,accountLevel)',$test,$bdd);
+
 			        $bdd -> exec('INSERT INTO account(username,password,accountLevel) VALUES(\''.$_SESSION['username'].'\',\''.$_SESSION['hashedpwd'].'\',\''.$_SESSION['accountLevel'].'\')');
 
 			        //Récupération de l'id pour faire match l'id de l'account et l'id de l'user
