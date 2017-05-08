@@ -1,6 +1,6 @@
 <?php
     $titre = "Erreur";
-
+    $style = "style.css";
     ob_start();
 ?>
 

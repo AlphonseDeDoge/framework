@@ -1,5 +1,6 @@
 <?php
     $titre = "Compte";
+    $style = "style.css";
     $error=$msgError;
 
     ob_start();

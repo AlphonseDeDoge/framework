@@ -1,5 +1,6 @@
 <?php
     $titre = "Accueil";
+    $style = "style.css";
     $error=$msgError;
 
     ob_start();

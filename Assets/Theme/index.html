@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>jQuery UI Dialog - Default functionality</title>
+	  <script src="js/jquery.js"></script>
+	  <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
+	  <script src="js/theme.js">  </script>
+	  <link rel="stylesheet" type="text/css" href="css/theme.css">
+	  <link rel="stylesheet" type="text/css" href="css/jquery-ui-themes-1.12.1/themes/base/jquery-ui.css">
+	</head>
+
+	<body>
+	 <p id="a" class="texte">Cliquez sur le texte à changer avant d'utiliser le panneau de contrôle</p>
+	<!-- <div id="dialog" title="Basic dialog">
+	  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+	</div> -->
+
+	<div class="dialog" title="Contrôleur" style="opacity: 1;">    
+			<div>   
+				<div>   
+					<div>     
+						<table>       
+							<tbody>
+								<tr>         
+									<td>Taille de police:</td>         
+									<td>
+										<div>             
+											<button type="button" onClick="diminue_taille()">
+												<span>A-</span>
+											</button>             
+											<button type="button" onClick="augmente_taille()">
+												<span>A+</span>
+											</button>           
+										</div>
+									</td>       
+								</tr>       
+								<tr>         
+									<td>Style de police:</td>         
+									<td>
+										<div>             
+											<button type="button" onClick="gras()">
+												<span>G</span>
+											</button>                            
+												<button type="button" onClick="italique()">
+													<span>I</span>
+											</button> 	                          
+												<button type="button" onClick="souligne()">             
+													<span>S</span>
+											</button> 	                           
+												<button type="button" onClick="barre()">    
+													<span>B</span>
+											</button> 	          
+										</div>         
+									</td>       
+								</tr>       
+								<tr>         
+									<td>Couleur de police:</td>         
+									<td>
+								<!-- Palette de couleur --> 
+									<map name="couleurPolice">
+									<!-- Première ligne -->
+										<area class="noir" onClick="couleurPolice(this.className)" shape="rect" coords="0,0,19,19">
+										<area class="gris50" onClick="couleurPolice(this.className)" shape="rect" coords="22,0,41,19">
+										<area class="rougeFonce" onClick="couleurPolice(this.className)" shape="rect" coords="44,0,63,19">
+										<area class="rouge" onClick="couleurPolice(this.className)" shape="rect" coords="66,0,85,19">
+										<area class="orange" onClick="couleurPolice(this.className)" shape="rect" coords="88,0,107,19">
+										<area class="jaune" onClick="couleurPolice(this.className)" shape="rect" coords="110,0,129,19">
+										<area class="vert" onClick="couleurPolice(this.className)" shape="rect" coords="132,0,151,19">
+										<area class="turquoise" onClick="couleurPolice(this.className)" shape="rect" coords="154,0,173,19">
+										<area class="indigo" onClick="couleurPolice(this.className)" shape="rect" coords="176,0,195,19">
+										<area class="violet" onClick="couleurPolice(this.className)" shape="rect" coords="198,0,217,19">
+									<!-- Deuxième ligne -->
+										<area class="blanc" onClick="couleurPolice(this.className)" shape="rect" coords="0,22,19,41">
+										<area class="gris25" onClick="couleurPolice(this.className)" shape="rect" coords="22,22,41,41">
+										<area class="marron" onClick="couleurPolice(this.className)" shape="rect" coords="44,22,63,41">
+										<area class="roseSaumon" onClick="couleurPolice(this.className)" shape="rect" coords="66,22,85,41">
+										<area class="or" onClick="couleurPolice(this.className)" shape="rect" coords="88,22,107,41">
+										<area class="jauneClair" onClick="couleurPolice(this.className)" shape="rect" coords="110,22,129,41">
+										<area class="vertClair" onClick="couleurPolice(this.className)" shape="rect" coords="132,22,151,41">
+										<area class="turquoiseClair" onClick="couleurPolice(this.className)" shape="rect" coords="154,22,173,41">
+										<area class="bleuGris" onClick="couleurPolice(this.className)" shape="rect" coords="176,22,195,41">
+										<area class="lavande" onClick="couleurPolice(this.className)" shape="rect" coords="198,22,217,41">
+									</map>
+										<img id="img" src="couleur.png" width="218" height="42" alt="Couleur" usemap="#couleurPolice">		
+									</td>       
+								</tr>       
+								<!--<tr>         
+									<td>Couleur de branche:</td>         
+									<td>
+										
+									</td>       
+								</tr>--> 
+								<tr>         
+									<td>Couleur de fond:</td>         
+									<td> 
+								<!-- Palette de couleur --> 
+									<map name="background">
+									<!-- Première ligne -->
+										<area class="noir" onClick="background(this.className)" shape="rect" coords="0,0,19,19">
+										<area class="gris50" onClick="background(this.className)" shape="rect" coords="22,0,41,19">
+										<area class="rougeFonce" onClick="background(this.className)" shape="rect" coords="44,0,63,19">
+										<area class="rouge" onClick="background(this.className)" shape="rect" coords="66,0,85,19">
+										<area class="orange" onClick="background(this.className)" shape="rect" coords="88,0,107,19">
+										<area class="jaune" onClick="background(this.className)" shape="rect" coords="110,0,129,19">
+										<area class="vert" onClick="background(this.className)" shape="rect" coords="132,0,151,19">
+										<area class="turquoise" onClick="background(this.className)" shape="rect" coords="154,0,173,19">
+										<area class="indigo" onClick="background(this.className)" shape="rect" coords="176,0,195,19">
+										<area class="violet" onClick="background(this.className)" shape="rect" coords="198,0,217,19">
+									<!-- Deuxième ligne -->
+										<area class="blanc" onClick="background(this.className)" shape="rect" coords="0,22,19,41">
+										<area class="gris25" onClick="background(this.className)" shape="rect" coords="22,22,41,41">
+										<area class="marron" onClick="background(this.className)" shape="rect" coords="44,22,63,41">
+										<area class="roseSaumon" onClick="background(this.className)" shape="rect" coords="66,22,85,41">
+										<area class="or" onClick="background(this.className)" shape="rect" coords="88,22,107,41">
+										<area class="jauneClair" onClick="background(this.className)" shape="rect" coords="110,22,129,41">
+										<area class="vertClair" onClick="background(this.className)" shape="rect" coords="132,22,151,41">
+										<area class="turquoiseClair" onClick="background(this.className)" shape="rect" coords="154,22,173,41">
+										<area class="bleuGris" onClick="background(this.className)" shape="rect" coords="176,22,195,41">
+										<area class="lavande" onClick="background(this.className)" shape="rect" coords="198,22,217,41">
+									</map>
+										<img id="img" src="couleur.png" width="218" height="42" alt="Couleur" usemap="#background">
+									</td>       
+								</tr>      
+							</tbody>
+						</table>   
+					</div> 
+				</div>
+			</div> 
+		</div>
+
+	<div class="sujetPrincipal sujetPrincipalClassique" contenteditable="true">
+      <p id="a" class="texte texteClassique"> texte </p>
+    </div>
+
+    <div class="sujet sujetClassique" contenteditable="true">
+      <p id="a" class="texte texteClassique"> texte2 </p>
+    </div>
+
+    <button onClick="sauvegarder()">
+    	<span>Sauvegarder</span>
+    </button>
+
+    <button onClick="charger()">
+    	<span>Charger</span>
+    </button>
+
+    <button onClick="changerTheme()">
+    	<span>Changer thème</span>
+    </button>
+
+ <div class="menu">
+  <fieldset>
+    <label class="menu-titre">Thèmes</label>
+    <select name="speed" id="thèmes">
+      <option>Professionnel</option>
+      <option>Business</option>
+      <option>Business I</option>
+      <option>Business II</option>
+      <option>Business III</option>
+    </select>
+ </fieldset>
+ </div>
+
+<button onClick="test()"> SALUT</button>
+
+	</body>
+</html>

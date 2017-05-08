@@ -1,0 +1,210 @@
+
+.texte{
+	text-align: center;
+}
+
+.sujetPrincipalClassique{
+	position: absolute;
+	width: 223px;
+	height: 73px;
+	background-image: url("../Themes/classique/sujetPrincipalClassique.png");
+}
+
+.flecheClassique{
+	
+}
+
+.accoladeClassique{
+	width: 25px;
+	height: 170px;
+	background-image: url("../Themes/classique/accoladeClassique.png");
+}
+
+.sujetAccoladeClassique{
+	width: 120px;
+	height: 41px;
+	background-image: url("../Themes/classique/accoladeClassique.png");	
+}
+
+.sujetClassique{
+	width: 113px;
+	height: 32px;
+	background-image: url("../Themes/classique/sujetClassique.png");	
+}
+
+.sujetPrincipalBusiness{
+	position: absolute;
+	width: 302px;
+	height: 81px;
+	background-image: url("../Themes/business/sujetPrincipalBusiness.png");
+}
+
+.flecheBusiness{
+	
+}
+
+.accoladeBusiness{
+	width: 26px;
+	height: 52px;
+	background-image: url("../Themes/business/accoladeBusiness.png");
+}
+
+.sujetAccoladeBusiness{
+	width: 120px;
+	height: 41px;
+	/*background-image: url("../Themes/business/accoladeBusiness.png");	Pas d'image pour les sujets des accolades sur ce thème*/
+}
+
+.sujetBusiness{
+	width: 197px;
+	height: 42px;
+	background-image: url("../Themes/business/sujetBusiness.png");	
+}
+
+
+nav ul{
+	list-style-type:none;
+}
+
+nav li{
+	display:inline-block;
+	margin-left:25px;
+	}
+
+nav li a {
+	display:block;
+	height:25px;
+}
+
+
+#home{
+	margin-left:0px;
+    width:27px;
+	height:25px;
+	background: url("../Theme/images/home.png")0 0;
+}
+
+#enregistrer{
+    width:24px;
+	height:25px;
+	 background: url("../Theme/images/enregistrer.png")0 0;
+}
+
+#sujet{
+    width:29px;
+	height:22px;
+	 background: url("../Theme/images/sujet.png")0 0;
+}
+
+#limite{
+    width:31px;
+	height:24px;
+	 background: url("../Theme/images/limite.png")0 0;
+}
+
+#accolade{
+    width:30px;
+	height:26px;
+	 background: url("../Theme/images/accolade.png")0 0;
+}
+
+#suppression{
+    width:30px;
+	height:26px;
+	 background: url("../Theme/images/delete.png")0 0;
+}
+
+#commentaire{
+    width:23px;
+	height:23px;
+	 background: url("../Theme/images/commentaire.png")0 0;
+}
+
+#bulle{
+    width:23px;
+	height:21px;
+	 background: url("../Theme/images/bulle.png")0 0;
+}
+
+#iconeTheme{
+    width:24px;
+	height:18px;
+	 background: url("../Theme/images/iconeTheme.png")0 0;
+}
+
+
+#menu ul {
+	display: none; 
+	position: absolute; 
+	left: 144px; 
+	top: -1px; 
+	margin:0px; 
+	padding: 0px; 
+	border: 1px solid grey;
+	} 
+#menu li:hover  ul {display:block;}
+
+
+ #menu ul li {
+ 	list-style-type: none; position: relative; width: 140px; background-color: #E0E0E0; padding: 2px; margin: 0px
+ }
+ #menu ul li a {
+ 	text-align:center;
+ 	text-decoration: none;
+ }
+ 
+ .Elem{
+    position: absolute;
+    padding: 2px;
+    min-width: 80px;
+    min-height: 20px;
+    text-align: center;
+    text-justify: auto;
+    display: inline-block; /* permet l'ajustement auto*/   
+}
+
+.Sujet{
+    background: white;
+    border:solid 2px black;
+}
+
+.Commentaire{
+    background: white;
+    border:dotted 2px black;
+    border-radius: 5px;
+}
+
+.Bulle{
+    background: #F5F5DC;
+    border:solid 1px black;
+    border-radius: 5px;
+}
+
+#Carte{
+    position: absolute;	
+	width: 99%;
+	height: 85%;
+	overflow: auto;
+	border:solid 2px rgb(63,72,204);
+}
+
+svg {
+    width: 99%;
+    height: 85%; 
+    position: absolute;
+    pointer-events: none;
+}
+
+svg line {
+    stroke:black;
+    stroke-width:2;
+}
+
+#Background {
+    position: absolute;
+    width: 99%;
+    height: 85%;
+    background-color: yellow;
+    pointer-events: none;
+}
+

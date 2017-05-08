@@ -47,6 +47,10 @@ function changePwd(){
     else compte("");
 }
 
+function carte(){
+    getView('Carte');
+}
+
 function erreur($msgErreur)
 {
     getViewErreur('Erreur',$msgErreur);

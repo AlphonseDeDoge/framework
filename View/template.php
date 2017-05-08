@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/Assets/style.css" />
+        <link rel="stylesheet" href="/Assets/Style/<?php echo $style ?>" />
         <title><?php echo $titre ?></title>
     </head>
     <body>
@@ -19,7 +19,7 @@
 
 
             <footer id="piedBlog">
-                Blog réalisé avec PHP, HTML5 et CSS. 2017
+                Site projet techno web 2017
             </footer>
 
         </div> <!-- #global -->

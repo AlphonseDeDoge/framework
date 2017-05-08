@@ -36,6 +36,9 @@ try {
             else if ($_GET['action']=='changePwd') {
                 changePwd();
             }
+            else if ($_GET['action']=='carte') {
+                carte();
+            }
             else
             {
                 erreur("Please don't touch the url");

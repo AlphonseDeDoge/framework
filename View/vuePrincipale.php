@@ -1,6 +1,6 @@
 <?php
     $titre = "Principale";
-
+    $style = "style.css";
     ob_start();
 ?>
 <div class="connexion">

@@ -1,6 +1,6 @@
 <?php
     $titre = "Registration";
-
+    $style = "style.css";
     ob_start();
 ?>
 
