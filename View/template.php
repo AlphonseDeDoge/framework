@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/Assets/Style/<?php echo $style ?>" />
+        <link rel="stylesheet" href="/Assets/Theme/css/<?php echo $style ?>" />
         <title><?php echo $titre ?></title>
     </head>
     <body>

@@ -1317,7 +1317,7 @@ a.ui-button:active,
     min-height: 20px;
     text-align: center;
     text-justify: auto;
-    display: inline-block; /* permet l'ajustement auto*/   
+    display: inline-block; /* permet l'ajustement auto*/
 }
 
 .Sujet{
@@ -1347,7 +1347,7 @@ a.ui-button:active,
 
 svg {
     width: 99%;
-    height: 85%; 
+    height: 85%;
     position: absolute;
     pointer-events: none;
 }
@@ -1364,5 +1364,3 @@ svg line {
     background-color: yellow;
     pointer-events: none;
 }
-
-

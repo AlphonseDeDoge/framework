@@ -138,7 +138,7 @@ Carte.prototype.ajoutElem = function(type,px,py,idselect) {
     console.log("verif elem : "+this.VerifElem(idselect));
 
     if(this.VerifElem(idselect)==1){
-        var newElem = new window[type](idselect,this.idcourant,px,py);    
+        var newElem = new window[type](idselect,this.idcourant,px,py);
         new Liaison(idselect,newElem.id);
     }
 }
@@ -191,9 +191,9 @@ function Elem(i,px,py){
         $('#Carte').append('<div id="'+this.id+'" class="'+this.type+' Elem" contenteditable="true" style="top:'+this.posy+'px;left:'+this.posx+'px;">'+this.texte+'</div>');
 
         console.log("affiche elem");
-    } 
-	
-	
+    }
+
+
 	this.AfficheImport=function(){
 		var t='<div id="'+this.id+'" class="'+this.type+' Elem" contenteditable="true" style="top:'+this.posy+'px;left:'+this.posx+'px;">'+this.texte+'</div>';
 		return t;
@@ -210,7 +210,7 @@ function Elem(i,px,py){
     var that = this;
 
     $('#'+this.id).draggable({
-        cursor: 'move', 
+        cursor: 'move',
         drag: function(){
             var position = $(this).position();
             that.posx = position.left;
@@ -308,7 +308,7 @@ function Bulle(ids,i,px,py){
 function Ensemble(id,idSujets){
     this.idSujets=idSujets;
     this.id=id;
-	
+
 	this.AfficheImport=function(){
 	var t='';
 	return t;
@@ -420,7 +420,7 @@ function importer() {
             error: function(e) {
                 console.log(e);
             }
-        })    
+        })
     }
 }
 
@@ -430,15 +430,15 @@ function reconstructCarte(carteJson){
     for (var key in carteJson){
         if (key != 'elems'){
             newCarte[key] = carteJson[key]
-        }   
-    }   
+        }
+    }
 
     $.each(carteJson.elems, function(objName, obj) {
         var newObj = new window[obj.type]
 
         for (var key in obj) {
             newObj[key] = obj[key]
-        }  
+        }
         newCarte.elems[objName] = newObj;
     })
 
