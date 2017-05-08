@@ -9,7 +9,7 @@
         <div id="global">
 
             <header>
-                <a href="index.php"><h1 id="clicAccueil">Site cartes heuristiques</h1></a>
+                <a href="index.php"><h1 id="clicAccueil">Mind Maps</h1></a>
             </header>
 
 

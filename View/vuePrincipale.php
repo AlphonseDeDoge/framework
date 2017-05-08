@@ -15,8 +15,7 @@
 <div>
 
 	<form action="index.php?action=groupe" method="post" class ="boutonPrincipale">
-		<button type="submit">Gestion groupe</button>
-		<button type="submit" formaction="index.php?action=carte">Gestion carte</button>
+		<button type="submit" formaction="index.php?action=carte">Create Map</button>
 	</form>
 
 </div>

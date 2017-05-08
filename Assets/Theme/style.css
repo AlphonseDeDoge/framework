@@ -52,15 +52,16 @@ label
 	width: 20%;
 	margin-top: 30%;
 	margin-bottom: 30%;
-	margin-left: 20%
+	margin-left: 40%
 }
 
 a
 {
 	color:steelblue;
+    text-decoration: none;
 }
 
 a:visited
 {
-	color:teal;
+	color:teal;text-decoration: none;
 }
