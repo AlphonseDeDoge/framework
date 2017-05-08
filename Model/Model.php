@@ -2,7 +2,7 @@
 
 	function getBdd()
 	{
-		require_once(root.'/Assets/dbConf.php');
+		require_once(root.'/Assets/Config/dbConf.php');
 
 		try
 		{
