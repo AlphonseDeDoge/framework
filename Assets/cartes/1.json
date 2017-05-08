@@ -1,0 +1,56 @@
+{
+    "idcourant": 2,
+    "elems": {
+        "sujet0": {
+            "type": "Sujet",
+            "id": "sujet0",
+            "texte": "",
+            "posx": 211,
+            "posy": 129.0000038147,
+            "styl": {
+                "couleur": "black",
+                "bordure": "solid",
+                "backgrnd": "white"
+            },
+            "idPere": -1
+        },
+        "bulle1": {
+            "type": "Bulle",
+            "id": "bulle1",
+            "texte": "",
+            "posx": 66,
+            "posy": 84.000003814697,
+            "styl": {
+                "couleur": "black",
+                "bordure": "solid",
+                "backgrnd": "white"
+            },
+            "idSujet": "sujet0"
+        }
+    },
+    "liaisons": [
+        {
+            "id1": "sujet0",
+            "id2": "bulle1",
+            "type": 0,
+            "styl": {
+                "couleur": "black"
+            },
+            "index": 0,
+            "x1": 256,
+            "y1": 144.0000038147,
+            "x2": 110,
+            "y2": 99.000003814697
+        }
+    ],
+    "ensembles": [],
+    "nom": "Sans_nom",
+    "id": 1,
+    "idCrea": 20,
+    "styl": {
+        "couleur": "black",
+        "bordure": "solid",
+        "backgrnd": "white"
+    },
+    "type": "Carte"
+}

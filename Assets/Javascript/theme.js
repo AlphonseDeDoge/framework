@@ -1,6 +1,6 @@
 // Déclaration des variables
 var selection;
-var themeActuel = "classique";
+var themeActuel = "pro";
 
 // Fenêtre "Commande"
 $( function() {
@@ -188,6 +188,7 @@ function couleur(nom){
 
 function background(nom){
 	document.getElementById('Carte').style.backgroundColor = couleur(nom);
+    document.getElementById('Carte').style.backgroundColor.zIndex="0";
 }
 
 function couleurPolice(nom){
@@ -196,81 +197,175 @@ function couleurPolice(nom){
 
 // Pour l'instant je sauvegarde en local pour voir si ça marche bien
 function sauvegarderTexte(){
-	var liste = document.getElementsByClassName('texte');
-	var i;
-	var id;
-	var fontSize;
-	var fontWeight;
-	var fontStyle;
-	var textDecoration;
-	var styleColor;
-	var monObjet;
-	var monJSON;
+    var liste = document.getElementsByClassName('texte');
+    var i;
+    var id;
+    var fontSize;
+    var fontWeight;
+    var fontStyle;
+    var textDecoration;
+    var styleColor;
+    var monObjet;
+    var monJSON;
 
-	for (i = 0; i < liste.length; i++) {
-		id = liste[i].id;
-	    fontSize = liste[i].style.fontSize;
-	    fontWeight = liste[i].style.fontWeight;
-		fontStyle = liste[i].style.fontStyle;
-		textDecoration = liste[i].style.textDecoration;
-		styleColor = liste[i].style.color;
-		monObjet = {
-			"id":id, 
-			"fontSize":fontSize, 
-			"fontWeight":fontWeight, 
-			"fontStyle":fontStyle, 
-			"textDecoration":textDecoration, 
-			"styleColor":styleColor
-		}
-		monJSON = JSON.stringify(monObjet);
-		localStorage.setItem(id, monJSON);
-	}
+    for (i = 0; i < liste.length; i++) {
+        id = liste[i].id;
+        fontSize = liste[i].style.fontSize;
+        fontWeight = liste[i].style.fontWeight;
+        fontStyle = liste[i].style.fontStyle;
+        textDecoration = liste[i].style.textDecoration;
+        styleColor = liste[i].style.color;
+        monObjet = {
+            "id":id, 
+            "fontSize":fontSize, 
+            "fontWeight":fontWeight, 
+            "fontStyle":fontStyle, 
+            "textDecoration":textDecoration, 
+            "styleColor":styleColor
+        }
+        monJSON = JSON.stringify(monObjet);
+        localStorage.setItem(id, monJSON);
+    }
 // on sauvegarde le background
-	monObjet = {"background":document.body.style.backgroundColor}
-	monJSON = JSON.stringify(monObjet);
-	localStorage.setItem("background", monJSON);
+    monObjet = {
+                "background":document.body.style.backgroundColor,
+                "theme":themeActuel
+            }
+    monJSON = JSON.stringify(monObjet);
+    localStorage.setItem("background", monJSON);
+   
+
 }
 
 function charger(){
-	var liste = document.getElementsByClassName('texte');
-	var i;
-	var charge; 
-	var obj;
+    var liste = document.getElementsByClassName('texte');
+    var i;
+    var charge; 
+    var obj;
 
-	charge = localStorage.getItem("background");
-	obj = JSON.parse(charge);
-	document.body.style.backgroundColor = obj.background;
+    charge = localStorage.getItem("background");
+    obj = JSON.parse(charge);
+    document.body.style.backgroundColor = obj.background;
+    themeActuel = obj.theme;
+    chargeTheme();
 
-	for (i = 0; i < liste.length; i++) {
-		charge = localStorage.getItem(liste[i].id);
-		obj = JSON.parse(charge);
-		liste[i].style.fontSize = obj.fontSize;
-		liste[i].style.fontWeight = obj.fontWeight;
-		liste[i].style.fontStyle = obj.fontStyle;
-		liste[i].style.textDecoration = obj.textDecoration;
-		liste[i].style.color = obj.styleColor;
-	}
+    for (i = 0; i < liste.length; i++) {
+        charge = localStorage.getItem(liste[i].id);
+        obj = JSON.parse(charge);
+        liste[i].style.fontSize = obj.fontSize;
+        liste[i].style.fontWeight = obj.fontWeight;
+        liste[i].style.fontStyle = obj.fontStyle;
+        liste[i].style.textDecoration = obj.textDecoration;
+        liste[i].style.color = obj.styleColor;
+    }
 }
 
-// juste pour tester un changement de thème basique, ça sera bien sûr amélioré pour le rendu final 
-function changerTheme(){
-	if(themeActuel == 'classique'){
-		$('.sujet').removeClass('sujetClassique').addClass('sujetBusiness');
-		$('.sujetPrincipal').removeClass('sujetPrincipalClassique').addClass('sujetPrincipalBusiness');
-		themeActuel = 'business';
-	} else if(themeActuel =='business'){
-		$('.sujet').removeClass('sujetBusiness').addClass('sujetClassique');
-		$('.sujetPrincipal').removeClass('sujetPrincipalBusiness').addClass('sujetPrincipalClassique');
-		themeActuel = 'classique';
-	}
+function themePro(){
+    switch(themeActuel) {
+    case "pro":
+    $('#sujet0').removeClass('sujetPrincipalPro').addClass('sujetPrincipalPro');
+    $('.Sujet').removeClass('sujetPro').addClass('sujetPro');
+    $('.sujetPrincipal').removeClass('sujetPrincipalPro').addClass('sujetPrincipalPro');
+    $('.Bulle').removeClass('bullePro').addClass('bullePro');
+    $('.Commentaire').removeClass('commentairePro').addClass('commentairePro');
+        break;
+    case "businessI":
+        $('#sujet0').removeClass('sujetPrincipalBusinessI').addClass('sujetPrincipalPro');
+        $('.Sujet').removeClass('sujetBusinessI').addClass('sujetPro');
+        $('.sujetPrincipal').removeClass('sujetPrincipalBusinessI').addClass('sujetPrincipalPro');
+        $('.Bulle').removeClass('bulleBusinessI').addClass('bullePro');
+        $('.Commentaire').removeClass('commentaireBusinessI').addClass('commentairePro');
+        break;
+    case "businessII":
+        $('#sujet0').removeClass('sujetPrincipalBusinessII').addClass('sujetPrincipalPro');
+        $('.Sujet').removeClass('sujetBusinessII').addClass('sujetPro');
+        $('.sujetPrincipal').removeClass('sujetPrincipalBusinessII').addClass('sujetPrincipalPro');
+        $('.Bulle').removeClass('bulleBusinessII').addClass('bullePro');
+        $('.Commentaire').removeClass('commentaireBusinessII').addClass('commentairePro');
+        break;
+    default:
+        break;
+    }
+    themeActuel="pro";
+}   
+
+    function themeBusinessI(){
+        switch(themeActuel) {
+    case "pro":
+        $('#sujet0').removeClass('sujetPrincipalPro').addClass('sujetPrincipalBusinessI');
+        $('.Sujet').removeClass('sujetPro').addClass('sujetBusinessI');
+        $('.Bulle').removeClass('bullePro').addClass('bulleBusinessI');
+        $('.Commentaire').removeClass('commentairePro').addClass('commentaireBusinessI');
+        break;
+    case "businessI":
+        $('#sujet0').removeClass('sujetPrincipalBusinessI').addClass('sujetPrincipalBusinessI');
+        $('.Sujet').removeClass('sujetBusinessI').addClass('sujetBusinessI');
+        $('.Bulle').removeClass('bulleBusinessI').addClass('bulleBusinessI');
+        $('.Commentaire').removeClass('commentaireBusinessI').addClass('commentaireBusinessI');
+        break;
+    case "businessII":
+        $('#sujet0').removeClass('sujetPrincipalBusinessII').addClass('sujetPrincipalBusinessI');
+        $('.Sujet').removeClass('sujetBusinessII').addClass('sujetBusinessI');
+        $('.Bulle').removeClass('bulleBusinessII').addClass('bulleBusinessI');
+        $('.Commentaire').removeClass('commentaireBusinessII').addClass('commentaireBusinessI');
+        break;
+    default:
+        break;
+    }
+    themeActuel="businessI";
 }
 
-$( function() {
+function themeBusinessII(){
+        switch(themeActuel) {
+    case "pro":
+        $('#sujet0').removeClass('sujetPrincipalPro').addClass('sujetPrincipalBusinessII');
+        $('.Sujet').removeClass('sujetPro').addClass('sujetBusinessII');
+        $('.Bulle').removeClass('bullePro').addClass('bulleBusinessII');
+        $('.Commentaire').removeClass('commentairePro').addClass('commentaireBusinessII');
+        break;
+    case "businessI":
+        $('#sujet0').removeClass('sujetPrincipalBusinessI').addClass('sujetPrincipalBusinessII');
+        $('.Sujet').removeClass('sujetBusinessI').addClass('sujetBusinessII');
+        $('.Bulle').removeClass('bulleBusinessI').addClass('bulleBusinessII');
+        $('.Commentaire').removeClass('commentaireBusinessI').addClass('commentaireBusinessII');
+        break;
+    case "businessII":
+        $('#sujet0').removeClass('sujetPrincipalBusinessII').addClass('sujetPrincipalBusinessII');
+        $('.Sujet').removeClass('sujetBusinessII').addClass('sujetBusinessII');
+        $('.Bulle').removeClass('bulleBusinessII').addClass('bulleBusinessII');
+        $('.Commentaire').removeClass('commentaireBusinessII').addClass('commentaireBusinessII');
+        break;
+    default:
+        break;
+    }
+    themeActuel="businessII";
+}
+    
+
+function chargeTheme(){
+    switch(themeActuel) {
+        case "pro":
+            themePro();
+            break;
+        case "businessI":
+            themeBusinessI();
+            break;
+        case "businessII":
+            themeBusinessII();
+            break;
+        default:
+            break;
+    }
+}
+
+
+/*$( function() {
     $( "#thèmes" ).selectmenu();
   } );
-var a = 0;
-function test(){
 
+var a = 0;
+function test()
+{
     var p = document.createElement("p");
     nouveauDiv = document.createElement("div");
     nouveauP= document.createElement("p");
@@ -290,4 +385,4 @@ function test(){
     });
 });
 
-}
+}*/

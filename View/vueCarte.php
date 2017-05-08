@@ -4,6 +4,8 @@
     ob_start();
 ?>
 
+<script>themePro();</script>
+
     <div>
         <!--<div id="menu">
             <button type="button" onClick="carte.Sauvegarde();"><span>Sauvegarder</span></button>
@@ -26,22 +28,20 @@
             <ul id="menu">
                 <li id="home" title="Afficher l'accueil"> <a href="#"></a></li>
                 <li id="enregistrer" title="Enregistrer la carte"> <a href="#" type="button" onClick="carte.Sauvegarde();"></a></li>
+                <li id="charger" title="Charger la carte"> <a href="#" type="button" onClick=""></a></li>
                 <li id="sujet" title="Sujet"> <a href="#" type="button" onClick="carte.ajoutElem('Sujet',px,py,selection);"></a></li>
                 <li id="bulle" title="Bulle"> <a href="#" type="button" onClick="carte.ajoutElem('Bulle',px,py,selection);"></a></li>
                 <li id="commentaire" title="Commentaire" onClick="carte.ajoutElem('Commentaire',px,py,selection);"><a href="#"></a></li>
-                <li id="limite" title="Limite"> <a href="#"></a></li>
-                <li id="accolade" title="Accolade"> <a href="#"></a></li>
                 <li id="suppression" title="Suppression" onClick="carte.Suppr(selection);"><a href="#"></a></li>
                 <li id="iconeTheme" title="Thèmes"> <a></a>
                     <ul>
-                        <li><a href="#">Professionnel</a></li>
-                        <li><a href="#">Business I</a></li>
-                        <li><a href="#">Business II</a></li>
+                        <li><a href="#" onClick="themePro()">Professionnel</a></li>
+                        <li><a href="#" onClick="themeBusinessI()">Business I</a></li>
+                        <li><a href="#" onClick="themeBusinessII()">Business II</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
-        <button type="button" onClick="importer();"><span>Importer</span></button>
     </div>
 
     <div id="Background"></div>
@@ -49,49 +49,7 @@
     </svg>
 
     <div id="Carte"></div>
-    <script src="Assets/Javascript/jquery.js"></script>
-    <script src="Assets/Javascript/jquery-ui-1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="Assets/Javascript/CarteMentaleV2.js"></script>
-    <script src="Assets/Javascript/Theme.js"></script>
-    <script>
-        var carte=new Carte(1,20);
-        var selection;
-        var posx,posy,px=0,py=0;
 
-        carte.CreatSu(200,200);
-
-        //carte.Affiche();
-
-        $("#Carte").ready(function(){
-
-            $("#Carte").mousemove(function(event){
-                posx=event.pageX-50;
-                posy=event.pageY-70;
-            })
-
-
-            $("#Carte").dblclick(function(){
-                carte.CreatSu(posx+0,posy+0);
-
-                //$('.Su').draggable({cursor: "move"});
-            });
-
-            $("#Carte").click(function(event){
-                selection=event.target.id;
-                console.log("selection : "+selection);
-                /*if (selection.indexOf('sujet') > -1)
-                    $('#menuajout button').prop('disabled', '');
-                else
-                    $('#menuajout button').prop('disabled', 'disabled');*/
-            });
-
-            $(document).on('blur' ,'.Elem', function(){
-                var text = $(this).text();
-                carte.elems[$(this).attr('id')].saveText(text);
-
-            })
-        });
-    </script>
     <div class="dialog" title="Contrôleur" style="opacity: 1;">
 
         <div>
@@ -159,7 +117,7 @@
                                     <area class="bleuGris" onClick="couleurPolice(this.className)" shape="rect" coords="176,22,195,41">
                                     <area class="lavande" onClick="couleurPolice(this.className)" shape="rect" coords="198,22,217,41">
                                 </map>
-                                    <img id="img" src="Assets/Theme/images/couleur.png" width="218" height="42" alt="Couleur" usemap="#couleurPolice">
+                                    <img id="img" src="../Assets/theme/images/couleur.png" width="218" height="42" alt="Couleur" usemap="#couleurPolice">
                                 </td>
                             </tr>
                             <!--<tr>
@@ -196,7 +154,7 @@
                                     <area class="bleuGris" onClick="background(this.className)" shape="rect" coords="176,22,195,41">
                                     <area class="lavande" onClick="background(this.className)" shape="rect" coords="198,22,217,41">
                                 </map>
-                                    <img id="img" src="Assets/Theme/images/couleur.png" width="218" height="42" alt="Couleur" usemap="#background">
+                                    <img id="img" src="../Assets/theme/images/couleur.png" width="218" height="42" alt="Couleur" usemap="#background">
                                 </td>
                             </tr>
                         </tbody>
@@ -205,6 +163,7 @@
             </div>
         </div>
     </div>
+
 
 <?php
     $contenu=ob_get_clean();
