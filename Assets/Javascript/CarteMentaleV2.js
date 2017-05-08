@@ -54,23 +54,24 @@ Carte.prototype.Suppr=function(selection){
 	this.DelElem(selection);
 }
 
-
+/*                  ici                  */
+/*                  ici                  */
+/*                  ici                  */
 Carte.prototype.DelElem=function(iddel){
     //suppression element
     var ok=false;
     var len=this.elems.length;
-    for(var i=0;i<len;i++){
-        if(this.elems[i]==iddel){
-            ok=true;
-            len--;
-        }
-        if(ok){
-            this.idFils[i]=this.idFils[i+1];
-            this.idFils[i+1]=-1; // à vérifier
-        }
-    }
-	if(ok=true)
-		this.elems.pop();
+    for(var key in this.elems){
+		if(this.elems[key].type=="Sujet"){
+			if(this.elems[key].idPere==iddel)
+				this.Suppr(this.elems[key].id);
+		}
+		else{
+			if(this.elems[key].type=="Bulle" || this.elems[key].type=="Commentaire")
+				if(this.elems[key].idSujet==iddel)
+					this.Suppr(this.elems[key].id);
+		}
+	}
     //supression des liaisons comprenant l'element
     ok=false;
     len=this.liaisons.length;
@@ -78,12 +79,12 @@ Carte.prototype.DelElem=function(iddel){
     for(var i=0;i<len;i++){
         if(this.liaisons[i].id1==iddel||this.liaisons[i].id2==iddel){
             imp++;
-            len--;
+            //len--;
             ok=true;
+			this.liaisons[i].remove();
         }
         if(ok){
             this.liaisons[i]=this.liaisons[i+imp];
-            this.liaisons[i+imp]=null; // à vérifier
         }
     }
 	for(var i=0;i<imp;i++)
@@ -98,7 +99,6 @@ Carte.prototype.DelElem=function(iddel){
                 ok=true;
             if(ok){
                 this.ensembles[i].idSujets[j]=this.ensembles[i].idSujets[j+1];
-                this.ensembles[i].idSujets[j+1]=-1; // à vérifier
             }
         }
     }
@@ -106,18 +106,31 @@ Carte.prototype.DelElem=function(iddel){
 		this.ensembles.pop();
 }
 
+/*                  ici                  */
+/*                  ici                  */
+/*                  ici                  */
+
 Carte.prototype.AjoutCreateur=function(idc){
     idCrea.push(idc);
 }
 
 Carte.prototype.Affiche=function(){
-    for(var i=0;i<this.elems.length;i++)
-        this.elems[i].Affiche();
+    for(var key in this.elems)
+        this.elems[key].Affiche();
     //console.log("longueur ensemble : "+this.ensembles.length);
 
     for(var i=0;i<this.ensembles.length;i++)
         this.ensembles[i].Affiche();
     //console.log("longueur element : "+this.elems.length);
+
+
+	var len=this.liaisons.length;
+	for(var i=0;i<len;i++){
+		var id1=this.elems[this.liaisons[i].id1].id;
+		var id2=this.elems[this.liaisons[i].id2].id;
+		new Liaison(id1,id2);
+	}
+	$('#Carte div').draggable({cursor: "move"});
 }
 
 
@@ -126,7 +139,7 @@ Carte.prototype.ajoutElem = function(type,px,py,idselect) {
     console.log("verif elem : "+this.VerifElem(idselect));
 
     if(this.VerifElem(idselect)==1){
-        var newElem = new window[type](idselect,this.idcourant,px,py);    
+        var newElem = new window[type](idselect,this.idcourant,px,py);
         new Liaison(idselect,newElem.id);
     }
 }
@@ -179,7 +192,7 @@ function Elem(i,px,py){
         $('#Carte').append('<div id="'+this.id+'" class="'+this.type+' Elem" contenteditable="true" style="top:'+this.posy+'px;left:'+this.posx+'px;">'+this.texte+'</div>');
 
         console.log("affiche elem");
-    } 
+    }
 
     this.saveText = function(text) {
         this.texte = text;
@@ -192,7 +205,7 @@ function Elem(i,px,py){
     var that = this;
 
     $('#'+this.id).draggable({
-        cursor: 'move', 
+        cursor: 'move',
         drag: function(){
             var position = $(this).position();
             that.posx = position.left;
@@ -354,13 +367,17 @@ function Liaison(i1,i2){
     this.redraw();
 }
 
-Liaison.prototype.redraw = function() {
+Liaison.prototype.redraw = function(){
     this.x1 = carte.elems[this.id1].posx+45;
     this.y1 = carte.elems[this.id1].posy+15;
     this.x2 = carte.elems[this.id2].posx+44;
     this.y2 = carte.elems[this.id2].posy+15;
     $('svg .'+this.index).remove();
     drawLine(this.x1, this.y1, this.x2, this.y2, this.index)
+}
+
+Liaison.prototype.remove=function(){
+	$('svg .'+this.index).remove();
 }
 
 
@@ -391,14 +408,15 @@ function importer() {
                 $('#Carte').html('')
 
                 carte = reconstructCarte(carteJson);
-                //carte.Affiche();
+				$('#Carte').html('')
+                carte.Affiche();
 
                 console.log(carte)
             },
             error: function(e) {
                 console.log(e);
             }
-        })    
+        })
     }
 }
 
@@ -408,15 +426,15 @@ function reconstructCarte(carteJson){
     for (var key in carteJson){
         if (key != 'elems'){
             newCarte[key] = carteJson[key]
-        }   
-    }   
+        }
+    }
 
     $.each(carteJson.elems, function(objName, obj) {
         var newObj = new window[obj.type]
 
         for (var key in obj) {
             newObj[key] = obj[key]
-        }  
+        }
         newCarte.elems[objName] = newObj;
     })
 

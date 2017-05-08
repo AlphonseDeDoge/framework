@@ -36,7 +36,7 @@
             <ul id="menu">
                 <li id="home" title="Afficher l'accueil"> <a href="#"></a></li>
                 <li id="enregistrer" title="Enregistrer la carte"> <a href="#" type="button" onClick="carte.Sauvegarde();"></a></li>
-                <li id="charger" title="Charger la carte"> <a href="#" type="button" onClick=""></a></li>
+                <li id="charger" title="Charger la carte"> <a href="#" type="button" onClick="importer();"></a></li>
                 <li id="sujet" title="Sujet"> <a href="#" type="button" onClick="carte.ajoutElem('Sujet',px,py,selection);"></a></li>
                 <li id="bulle" title="Bulle"> <a href="#" type="button" onClick="carte.ajoutElem('Bulle',px,py,selection);"></a></li>
                 <li id="commentaire" title="Commentaire" onClick="carte.ajoutElem('Commentaire',px,py,selection);"><a href="#"></a></li>
