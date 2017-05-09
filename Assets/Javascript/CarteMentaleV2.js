@@ -387,7 +387,7 @@ Liaison.prototype.remove=function(){
 Carte.prototype.Sauvegarde=function(){
     $.ajax({
         type: 'POST',
-        url:"save/save.php",
+        url:"Assets/save/save.php",
         data:{carte : JSON.stringify(this)},
         success:function(){console.log("Sauvegarde reussie");},
         error:function(){console.log("echec de sauvegarde")}
@@ -401,7 +401,7 @@ function importer() {
     if ($.isNumeric(Number(id))) {
         $.ajax({
             type: 'POST',
-            url: "save/import.php",
+            url: "Assets/save/import.php",
             data: {id: Number(id)},
             dataType: 'json',
             success: function(carteJson) {
